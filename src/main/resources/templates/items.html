@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+
+    <style>
+
+        form {
+            display: inline-block;
+        }
+
+        .form-group {
+            text-align: center;
+            padding-bottom: 25px;
+
+        }
+        .first-row {
+            margin-top: 4px;
+        }
+        .item {
+            background-color: aliceblue;
+            border-radius: 5px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row first-row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-5">
+            <form class="form-inline" action="/todos" method="POST">
+                <div class="form-group">
+                    <!--<label > <h3>To-Do<small>List</small></h3></label><p>-->
+
+                    <input type="text" size="45" class="form-control" id="task" name="description"
+                           placeholder="world domination, get milk">
+                        <input type="hidden" class="form-control" id="owner" name="owner" value="karthik">
+                        <input type="hidden" class="form-control" id="status" name="status" value="new">
+                        <input type="hidden" class="form-control" id="lat" name="latitude" value="19">
+                        <input type="hidden" class="form-control" id="lon" name="longitude" value="20">
+                        <input type="hidden" class="form-control" id="last" name="lastUpdated" value="2018-12-25">
+                        <input type="hidden" class="form-control" id="created" name="created" value="2018-12-25">
+                    <button type="submit" class="btn btn-default">Add task</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <div class="panel-body" >
+                <div th:if="${donkeys.empty}">
+                    No entries
+                </div>
+                <div th:each="item:${donkeys}">
+
+                    <div th:id="'cap_' + ${item.id}" class="item">
+
+                        <a th:href="'/todos/' + ${item.id}">
+                            <span th:text="${item.description}"></span>
+                        </a>
+
+                    </div>
+                    <p>
+                </#list>
+            </div>
+
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+</body>
+</html>

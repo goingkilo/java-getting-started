@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/fonts.css">
+        <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+
+        <style>
+
+            form {
+                display: inline-block;
+            }
+
+            .form-group {
+                text-align: center;
+                padding-bottom: 25px;
+
+            }
+            .first-row {
+                margin-top: 4px;
+            }
+            .item {
+                background-color: aliceblue;
+                border-radius: 5px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div class="row first-row">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-5">
+
+                    <form class="form-inline" action="/todos" method="PUT">
+                        <div class="form-group">
+
+                            <input type="text" size="45" class="form-control" id="task" name="description" th:value="${item.description}"><br>
+                            <input type="text" class="form-control" id="owner" name="owner" th:value="${item.owner}"><br>
+                            <input type="text" class="form-control" id="status" name="status" th:value="${item.status}"><br>
+                            <input type="text" class="form-control" id="lat" name="latitude" th:value="${item.latitude}"><br>
+                            <input type="text" class="form-control" id="lon" name="longitude" th:value="${item.longitude}"><br>
+                            <input type="text" class="form-control" id="last" name="lastUpdated" th:value="${item.lastUpdated}"><br>
+                            <input type="text" class="form-control" id="created" name="created" th:value="${item.created}"><br>
+
+                            <button type="submit" class="btn btn-default">Edit</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <a href="/todos">all items</a><br>
+                    <a th:href="'/todos/' + ${item.id}" method="delete">delete this</a><br>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

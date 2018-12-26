@@ -1,5 +1,7 @@
 package com.example.todo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +18,11 @@ public class Entry {
     private String owner;
     private double latitude;
     private double longitude;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date created;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date lastUpdated;
     private String status;
 
