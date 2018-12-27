@@ -1,4 +1,4 @@
-CREATE TABLE public.entry (
+CREATE TABLE entry (
     id bigint NOT NULL,
     created timestamp without time zone,
     description character varying(255),
